@@ -225,7 +225,6 @@ img {
 .home {
   position: relative;
   background: var(--body-color);
-  height: 280px;
   padding-top: 7rem;
   top: 50px;
   overflow: hidden;
@@ -244,9 +243,21 @@ img {
 
 /*=============== BREAKPOINTS ===============*/
 /* For medium devices */
-@media screen and (min-width: 576px) {}
+@media screen and (min-width: 576px) {
+  .auth__form {
+    max-width: 400px;
+  }
+}
 
 @media screen and (min-width: 767px) {
+
+  .home {
+    height: 280px;
+  }
+
+  .home__container {
+    grid-template-columns: 20% 80%;
+  }
 
   .nav__toggle,
   .nav__close,
@@ -366,7 +377,6 @@ img {
 
 .home__container {
   display: grid;
-  grid-template-columns: 20% 80%;
 }
 
 ul {
@@ -585,7 +595,6 @@ ul {
   margin-top: 2%;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
 
 .auth__form {
@@ -593,7 +602,7 @@ ul {
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  max-width: 300px;
   width: 100%;
 }
 
@@ -666,4 +675,51 @@ ul {
 
 .hidden__page {
   display: none;
+}
+
+/* General style for the select dropdown */
+.devision__select {
+  width: 100%; /* Full width of its container */
+  padding: 10px; /* Inner padding for the dropdown */
+  font-size: 16px; /* Font size for the text */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background */
+  appearance: none; /* Removes default browser styles */
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+  cursor: pointer; /* Pointer cursor */
+  margin-bottom: 10px; /* Space below the dropdown */
+}
+
+/* Style for the dropdown arrow (optional, needs additional markup) */
+.devision__select::after {
+  content: "▼"; /* Downward arrow */
+  position: absolute;
+  right: 15px; /* Positioning relative to the select */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #888; /* Arrow color */
+}
+
+/* Option styling */
+.devision__select option {
+  padding: 10px; /* Inner padding for options */
+  font-size: 16px; /* Font size */
+  background-color: #ffffff; /* White background for options */
+  color: #333; /* Text color */
+}
+
+/* Focus/hover styles for better UX */
+.devision__select:focus {
+  outline: none; /* Remove focus outline */
+  border-color: #007bff; /* Highlight border color */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect */
+}
+
+/* Style for disabled options (optional) */
+.devision__select option:disabled {
+  color: #ccc; /* Gray text for disabled options */
+  background-color: #f1f1f1; /* Light gray background */
 }

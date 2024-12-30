@@ -155,6 +155,28 @@ function getAutoDevision() {
       img: "./assets/img/logo.png",
     },
   ];
+  let isItMobile = window.innerWidth < 768;
+  if(isItMobile){
+    const selectHTML = `
+    <select id="devisionSelect" class="devision__select">
+      ${devision
+        .map((item) => {
+          const label =
+            sessionStorage.getItem("lang") === "ar" ? item.arabicLabel : item.label;
+          return `<option value="${item.id}">${label}</option>`;
+        })
+        .join("")}
+    </select>
+  `;
+  devisionList.innerHTML = selectHTML;
+
+  // Add event listener for selection change
+  const devisionSelect = document.getElementById("devisionSelect");
+  devisionSelect.addEventListener("change", (event) => {
+    const selectedId = event.target.value;
+    getAutoContent(selectedId);
+  });
+  }else {
   devisionList.innerHTML = devision
     .map((item) => {
       return `<li class="devision__item">
@@ -173,7 +195,7 @@ function getAutoDevision() {
             </div>
         </li>`;
     })
-    .join("");
+    .join("");}
 }
 
 function addClickEvent() {
