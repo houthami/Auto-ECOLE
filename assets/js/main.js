@@ -4,8 +4,8 @@ const navMenu = document.getElementById("nav-menu"),
   navClose = document.getElementById("nav-close"),
   closeDisplayDrawerBtn = document.getElementById("closeDisplayDrawerBtn"),
   displayDrawer = document.getElementById("display__drawer"),
-  account = document.getElementById("account")
-  languageToggle = document.getElementById("languageToggle");
+  account = document.getElementById("account");
+languageToggle = document.getElementById("languageToggle");
 
 const homeNaveAction = ["progress", "notification", "account"];
 const authNaveAction = ["login", "register"];
@@ -40,14 +40,16 @@ languageToggle.addEventListener("click", () => {
   const currentLanguage = languageToggle.textContent.trim();
 
   if (currentLanguage === "FR") {
-    languageToggle.innerHTML = '<i class=" language-icon ri-earth-line"></i> العربية';
+    languageToggle.innerHTML =
+      '<i class=" language-icon ri-earth-line"></i> العربية';
     // Switch to Arabic: Apply any required logic here
     document.documentElement.setAttribute("lang", "ar");
     sessionStorage.setItem("lang", "ar");
     document.body.style.direction = "rtl";
     loadTranslations("ar");
   } else {
-    languageToggle.innerHTML = '<i class=" language-icon ri-earth-line"></i> FR';
+    languageToggle.innerHTML =
+      '<i class=" language-icon ri-earth-line"></i> FR';
     // Switch to French: Apply any required logic here
     document.documentElement.setAttribute("lang", "fr");
     sessionStorage.setItem("lang", "fr");
@@ -128,10 +130,30 @@ function getAutoDevision() {
   const devisionList = document.querySelector(".devision__list");
   /*get Desvision [{label: "devision", value: "devision", img: "imgUrl"}}]*/
   let devision = [
-    { label: "Exams", arabicLabel: "الامتحانات", id: "exams", img: "./assets/img/logo.png" },
-    { label: "Cours", arabicLabel: "الدورات", id: "cours", img: "./assets/img/logo.png" },
-    { label: "Questions", arabicLabel: "الاسئلة", id: "trajectory", img: "./assets/img/logo.png" },
-    { label: "History", arabicLabel: "التاريخ", id: "history", img: "./assets/img/logo.png" },
+    {
+      label: "Exams",
+      arabicLabel: "الامتحانات",
+      id: "exams",
+      img: "./assets/img/logo.png",
+    },
+    {
+      label: "Cours",
+      arabicLabel: "الدورات",
+      id: "cours",
+      img: "./assets/img/logo.png",
+    },
+    {
+      label: "Questions",
+      arabicLabel: "الاسئلة",
+      id: "trajectory",
+      img: "./assets/img/logo.png",
+    },
+    {
+      label: "History",
+      arabicLabel: "التاريخ",
+      id: "history",
+      img: "./assets/img/logo.png",
+    },
   ];
   devisionList.innerHTML = devision
     .map((item) => {
@@ -141,9 +163,13 @@ function getAutoDevision() {
                     <img src="${item.img}" alt="${item.label}" />
                 </div>
                 <div class="devision__data">
-                    <h3 class="devision__title" id="devision__${item.id}">${sessionStorage.getItem("lang") === "ar" ? item.arabicLabel : item.label}</h3>
+                    <h3 class="devision__title" id="devision__${item.id}">${
+        sessionStorage.getItem("lang") === "ar" ? item.arabicLabel : item.label
+      }</h3>
                 </div>
-                <span class="devision__id" style="display: none">${item.id}</span>
+                <span class="devision__id" style="display: none">${
+                  item.id
+                }</span>
             </div>
         </li>`;
     })
@@ -166,7 +192,8 @@ function getAutoContent(id) {
   fetch("./assets/data/data.json")
     .then((response) => response.json())
     .then((data) => {
-      contentList.innerHTML = `<ul>${data?.contents?.filter((item) => item.type === id)
+      contentList.innerHTML = `<ul>${data?.contents
+        ?.filter((item) => item.type === id)
         .map((item) => {
           return `<li class="content__item">
                     <div class="content__card ${
@@ -174,8 +201,14 @@ function getAutoContent(id) {
                         ? `img__card" style="background-image: url(${item.img})"`
                         : ""
                     }"">
-                        <div class="content__data ${item.img ? "img__data" : ""}">
-                            <h3 class="content__title">${sessionStorage.getItem("lang") === "ar" ? item.arabicLabel : item.label}</h3>
+                        <div class="content__data ${
+                          item.img ? "img__data" : ""
+                        }">
+                            <h3 class="content__title">${
+                              sessionStorage.getItem("lang") === "ar"
+                                ? item.arabicLabel
+                                : item.label
+                            }</h3>
                         </div>
                         <span class="content__id" style="display: none">${id} - ${
             item.id
@@ -184,9 +217,9 @@ function getAutoContent(id) {
                 </li>`;
         })
         .join("")}</ul>`;
-    
+
       addChildClickEvent();
-    })
+    });
 }
 
 function insertMedia(content) {
@@ -440,7 +473,6 @@ function mainRoute() {
   }
 }
 
-
 async function loadTranslations(language) {
   try {
     const response = await fetch(`./translations/${language}.json`);
@@ -448,15 +480,22 @@ async function loadTranslations(language) {
     console.log("translations", translations);
 
     // Update UI with translations
-    document.getElementById("autoEcoleTitle").textContent = translations.autoEcoleTitle;
-    document.getElementById("autoEcoleLogo").textContent = translations.autoEcoleTitle;
+    document.getElementById("autoEcoleTitle").textContent =
+      translations.autoEcoleTitle;
+    document.getElementById("autoEcoleLogo").textContent =
+      translations.autoEcoleTitle;
     document.getElementById("auth__title").textContent = translations.authTitle;
-    document.getElementById("auth__button").textContent = translations.authTitle;
-    document.getElementById("auth__email__label").textContent = translations.email;
-    document.getElementById("auth__password__label").textContent = translations.password;
-    document.getElementById("auth__footer").textContent = translations.authFooter;
-    getAutoDevision()
-    getAutoContent("trajectory")
+    document.getElementById("auth__button").textContent =
+      translations.authTitle;
+    document.getElementById("auth__email__label").textContent =
+      translations.email;
+    document.getElementById("auth__password__label").textContent =
+      translations.password;
+    document.getElementById("auth__footer").textContent =
+      translations.authFooter;
+    getAutoDevision();
+    getAutoContent("trajectory");
+    addClickEvent();
   } catch (error) {
     console.error("Error loading translations :", error);
   }
