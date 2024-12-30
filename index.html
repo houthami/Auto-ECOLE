@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title id="autoEcoleTitle">Auto Ecole</title>
+  </head>
+
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="#" class="nav__logo">
+          <img src="assets/img/logo.png" alt="logo image" />
+          <span id="autoEcoleLogo">Auto Ecole</span>
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav_item" id="progress">
+              <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+                <span id="progress-text" class="progress-text">0%</span>
+              </div>
+            </li>
+
+            <li class="nav_item" id="notification">
+              <div class="notification-container">
+                <i class="notification-icon ri-notification-line"></i>
+                <span class="notification-span"></span>
+              </div>
+            </li>
+
+            <li class="nav_item" id="account">
+              <i class="account-icon ri-account-circle-fill"></i>
+            </li>
+            <li class="nav_item" id="language">
+              <div class="language-switcher">
+                <button id="languageToggle" class="language-switcher__btn">
+                  <i class="language-icon ri-earth-line"></i> FR
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-apps-2-line"></i>
+        </div>
+      </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <!--==================== AUTH ====================-->
+      <section class="auth section" id="auth">
+        <div class="auth__container container grid">
+          <form class="auth__form">
+            <h2 class="auth__title" id="auth__title">Login</h2>
+            <div class="auth__input-group">
+              <label for="email" class="auth__label" id="auth__email__label">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="auth__input"
+                placeholder="example@ex.com"
+                required
+              />
+            </div>
+            <div class="auth__input-group">
+              <label for="password" class="auth__label" id="auth__password__label">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="auth__input"
+                placeholder="**********"
+                required
+              />
+            </div>
+            <button type="submit" class="auth__button" id="auth__button">Login</button>
+            <p class="auth__footer" id="auth__footer">
+              Vous n'avez pas de compte ? Contacter l'administrateur
+            </p>
+          </form>
+        </div>
+      </section>
+      <!--==================== HOME ====================-->
+      <section class="home section" id="home">
+        <div class="home__container container grid">
+          <div class="devision__grid">
+            <ul class="devision__list"></ul>
+          </div>
+          <div class="content__list"></div>
+        </div>
+        <div id="display__drawer" class="display__drawer">
+          <button id="closeDisplayDrawerBtn" class="close-btn">X</button>
+          <div class="drawer-content"></div>
+        </div>
+      </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+      <div class="footer__container container grid">
+        <span class="footer copy">
+          &#169; Copyright Dev Factory. All rights reserved
+        </span>
+      </div>
+    </footer>
+
+    <!--=============== RELLAX JS ===============-->
+    <script src="assets/js/rellax.min.js"></script>
+
+    <!--=============== GSAP ===============-->
+    <script src="assets/js/gsap.min.js"></script>
+
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
